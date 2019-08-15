@@ -118,4 +118,9 @@
 
     </FrameLayout>
 
+    <FrameLayout android:gravity="center" android:layout_gravity="center" android:id="@+id/notification_animation_view" android:visibility="gone" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleY="0">
+        <ImageView android:gravity="right" android:layout_gravity="right" android:id="@+id/notification_animation_right" android:layout_width="150px" android:layout_height="match_parent" android:src="@drawable/aod_notification_light_right"/>
+        <ImageView android:gravity="left" android:layout_gravity="left" android:id="@+id/notification_animation_left" android:layout_width="150px" android:layout_height="match_parent" android:src="@drawable/aod_notification_light_left"/>
+    </FrameLayout>
+
 </com.android.systemui.statusbar.phone.KeyguardBottomAreaView>

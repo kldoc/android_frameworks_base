@@ -49,6 +49,7 @@ import com.android.systemui.Dependency;
 import com.android.systemui.Interpolators;
 import com.android.systemui.R;
 import com.android.systemui.omni.BatteryBarView;
+import com.android.systemui.omni.NotificationLightsView;
 import com.android.systemui.statusbar.phone.KeyguardIndicationTextView;
 import com.android.systemui.statusbar.phone.LockIcon;
 import com.android.systemui.statusbar.phone.StatusBarKeyguardViewManager;
@@ -119,6 +120,7 @@ public class KeyguardIndicationController {
     private static final String KEYGUARD_SHOW_BATTERY_TEMP = "sysui_keyguard_show_battery_temp";
 
     private BatteryBarView mBatteryBar;
+    private NotificationLightsView mNotificationLights;
 
 
     /**
@@ -158,6 +160,7 @@ public class KeyguardIndicationController {
                 Context.DEVICE_POLICY_SERVICE);
 
         mBatteryBar = indicationArea.findViewById(R.id.battery_bar_view);
+        mNotificationLights = indicationArea.findViewById(R.id.notification_animation_view);
 
         updateDisclosure();
     }
@@ -330,6 +333,7 @@ public class KeyguardIndicationController {
             // should be shown based on user or device state
             mBatteryBar.setVisibility(View.GONE);
             if (mDozing) {
+                mNotificationLights.setVisibility(View.VISIBLE);
                 mTextView.setTextColor(Color.WHITE);
                 if (!TextUtils.isEmpty(mTransientIndication)) {
                     // When dozing we ignore any text color and use white instead, because
